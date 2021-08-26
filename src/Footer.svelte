@@ -1,19 +1,37 @@
-<footer>
+<script>
+    export let footerHeight;
+</script>
+
+<footer bind:clientHeight={footerHeight}>
     <div class="footer">
-        <a href="https://cacheho.in" target="_blank"> <img src="/images/CacheHo_Logo.png" alt="" /></a>
+        <a href="https://cacheho.in" target="_blank">
+            <img src="/images/CacheHo_Logo.png" alt="" />
+        </a>
         <div class="link-copyright">
-            <a href="https://cacheho.in" target="_blank"><p class="link">CACHEHO.IN</p></a> 
+            <a href="https://cacheho.in" target="_blank"
+                ><p class="link">CACHEHO.IN</p>
+            </a>
             <p class="copyright">
                 Copyright © 2021 CacheHo. All Rights Reserved.
             </p>
         </div>
-        <div class="links">
-            <a href="https://cacheho.in" target="_blank"> <img src="/images/link.png" alt="" /></a>
-            <a href="https://cacheho.in" target="_blank"> <img src="/images/instagram.png" alt="" /></a>
-            <a href="https://cacheho.in" target="_blank"> <img src="/images/twitter.png" alt="" /></a>
-            <a href="https://cacheho.in" target="_blank"> <img src="/images/linkedin.png" alt="" /></a>
-            <a href="https://cacheho.in" target="_blank"> <img src="/images/email.png" alt="" /></a>
-        </div>
+        <span class="links">
+            <a href="https://cacheho.in" target="_blank">
+                <img src="/images/link.png" alt="link icon" />
+            </a>
+            <a href="https://instagram.com/cache_ho" target="_blank">
+                <img src="/images/instagram.png" alt="instagram icon" />
+            </a>
+            <a href="https://twitter.com/cache_ho" target="_blank">
+                <img src="/images/twitter.png" alt="twitter icon" />
+            </a>
+            <a href="https://www.linkedin.com/company/cacheho" target="_blank">
+                <img src="/images/linkedin.png" alt="linkedin icon" />
+            </a>
+            <a href="mailto:cacheho.team@gmail.com" target="_blank">
+                <img src="/images/email.png" alt="email icon" />
+            </a>
+        </span>
     </div>
 </footer>
 
@@ -39,7 +57,7 @@
 
     .footer {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         color: white;
         font-size: 12px;
     }
@@ -56,8 +74,8 @@
 
     .links {
         display: flex;
-        justify-content: space-between;
-        align-content: center;
+        justify-content: space-around;
+        align-items: center;
     }
 
     .links > a > img {
@@ -77,5 +95,4 @@
     a:hover {
         text-decoration: none;
     }
-
 </style>
