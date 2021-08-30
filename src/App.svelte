@@ -1,9 +1,17 @@
 <script>
-	import Navbar from "./Navbar.svelte";
-	import Footer from "./Footer.svelte";
-	import Description from "./Description.svelte";
-	import TabBar from "./TabBar.svelte";
-	import Episodes from "./Episodes.svelte";
+	import MediaQuery from "./MediaQuery.svelte";
+
+	import Navbar from "./desktop/Navbar.svelte";
+	import Footer from "./desktop/Footer.svelte";
+	import Description from "./desktop/Description.svelte";
+	import TabBar from "./desktop/TabBar.svelte";
+	import Episodes from "./desktop/Episodes.svelte";
+
+	import MobileNavbar from "./mobile/Navbar.svelte";
+	import MobileFooter from "./mobile/Footer.svelte";
+	import MobileDescription from "./mobile/Description.svelte";
+	import MobileTabBar from "./mobile/TabBar.svelte";
+	import MobileEpisodes from "./mobile/Episodes.svelte";
 
 	let headerHeight;
 	let footerHeight;
@@ -12,18 +20,39 @@
 	$: height = headerHeight + footerHeight + contentHeight;
 </script>
 
-<Navbar bind:headerHeight />
-<main>
-	<div>
-		<div bind:clientHeight={contentHeight}>
-			<Description />
-			<TabBar />
-		</div>
-		
-		<Episodes height={height} />
-	</div>
-</main>
-<Footer bind:footerHeight />
+<MediaQuery query="(min-width: 481px)" let:matches>
+	{#if matches}
+		<Navbar bind:headerHeight />
+		<main>
+			<div>
+				<div bind:clientHeight={contentHeight}>
+					<Description />
+					<TabBar />
+				</div>
+
+				<Episodes {height} />
+			</div>
+		</main>
+		<Footer bind:footerHeight />
+	{/if}
+</MediaQuery>
+
+<MediaQuery query="(max-width: 480px)" let:matches>
+	{#if matches}
+		<MobileNavbar bind:headerHeight />
+		<main>
+			<div>
+				<div bind:clientHeight={contentHeight}>
+					<MobileDescription />
+					<MobileTabBar />
+				</div>
+
+				<MobileEpisodes {height} />
+			</div>
+		</main>
+		<MobileFooter bind:footerHeight />
+	{/if}
+</MediaQuery>
 
 <style>
 	main {

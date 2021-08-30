@@ -1,6 +1,6 @@
 <script>
     import EpisodeCard from "./EpisodeCard.svelte";
-    import Data, {episodes} from "./Data.svelte"
+    import Data, {episodes} from "../Data.svelte"
 
     export let height;
 </script>
