@@ -2,7 +2,7 @@
     export let episode;
 </script>
 
-<div class="card">
+<div class="card" style="margin-bottom: 12px">
     <div>
         <p>EP-{episode['number']} {episode['title']}</p>
     </div>
